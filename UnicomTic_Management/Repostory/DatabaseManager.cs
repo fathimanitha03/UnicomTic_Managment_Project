@@ -99,6 +99,14 @@ namespace UnicomTic_Management.Repostory
                             )";
             var markCmd = new SQLiteCommand(markTable, conn);
             markCmd.ExecuteNonQuery();
+            string userTable = @"CREATE TABLE IF NOT EXISTS Users (
+                                UserID INTEGER PRIMARY KEY AUTOINCREMENT,
+                                Username TEXT NOT NULL UNIQUE,
+                                Password TEXT NOT NULL,
+                                Role TEXT NOT NULL)";
+            var userCmd = new SQLiteCommand(userTable, conn);
+            userCmd.ExecuteNonQuery();
+
 
             conn.Dispose();
         }
@@ -529,5 +537,59 @@ namespace UnicomTic_Management.Repostory
 
             conn.Dispose();
         }
+
+        public async Task<User> LoginAsync(string username, string password)
+        {
+            var conn = new SQLiteConnection(connectionString);
+            await conn.OpenAsync();
+
+            string query = "SELECT * FROM Users WHERE Username = @Username AND Password = @Password";
+            var cmd = new SQLiteCommand(query, conn);
+            cmd.Parameters.AddWithValue("@Username", username);
+            cmd.Parameters.AddWithValue("@Password", password);
+            var reader = await cmd.ExecuteReaderAsync();
+
+            User user = null;
+            if (await reader.ReadAsync())
+            {
+                user = new User
+                {
+                    UserID = Convert.ToInt32(reader["UserID"]),
+                    Username = reader["Username"].ToString(),
+                    Password = reader["Password"].ToString(),
+                    Role = reader["Role"].ToString()
+                };
+            }
+
+            conn.Dispose();
+            return user;
+        }
+
+        public async Task<bool> RegisterUserAsync(User user)
+        {
+            var conn = new SQLiteConnection(connectionString);
+            await conn.OpenAsync();
+
+            string query = "INSERT INTO Users (Username, Password, Role) VALUES (@Username, @Password, @Role)";
+            var cmd = new SQLiteCommand(query, conn);
+            cmd.Parameters.AddWithValue("@Username", user.Username);
+            cmd.Parameters.AddWithValue("@Password", user.Password);
+            cmd.Parameters.AddWithValue("@Role", user.Role);
+
+            try
+            {
+                await cmd.ExecuteNonQueryAsync();
+                return true;
+            }
+            catch
+            {
+                return false;
+            }
+            finally
+            {
+                conn.Dispose();
+            }
+        }
+
     }
 }
