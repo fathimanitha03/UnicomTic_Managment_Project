@@ -18,6 +18,10 @@ namespace UnicomTic_Management
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new CourseForm());
+            Application.Run(new SubjectForm());
+            Application.Run(new StudentForm());
+            Application.Run(new ExamForm());
+            Application.Run(new TimetableForm());
         }
     }
 }

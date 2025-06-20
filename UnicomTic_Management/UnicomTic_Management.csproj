@@ -103,6 +103,7 @@
     <Compile Include="Repostory\DatabaseManager.cs" />
     <Compile Include="Service\CourseService.cs" />
     <Compile Include="Service\ExamService.cs" />
+    <Compile Include="Service\MarkService.cs" />
     <Compile Include="Service\RoomService.cs" />
     <Compile Include="Service\StudentService.cs" />
     <Compile Include="Service\SubjectService.cs" />
@@ -114,11 +115,29 @@
     <Compile Include="View\CourseForm.Designer.cs">
       <DependentUpon>CourseForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="View\ExamForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\ExamForm.Designer.cs">
+      <DependentUpon>ExamForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\StudentForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\StudentForm.Designer.cs">
+      <DependentUpon>StudentForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="View\SubjectForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="View\SubjectForm.Designer.cs">
       <DependentUpon>SubjectForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\TimetableForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\TimetableForm.Designer.cs">
+      <DependentUpon>TimetableForm.cs</DependentUpon>
     </Compile>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
@@ -135,8 +154,17 @@
     <EmbeddedResource Include="View\CourseForm.resx">
       <DependentUpon>CourseForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="View\ExamForm.resx">
+      <DependentUpon>ExamForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\StudentForm.resx">
+      <DependentUpon>StudentForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="View\SubjectForm.resx">
       <DependentUpon>SubjectForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\TimetableForm.resx">
+      <DependentUpon>TimetableForm.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
