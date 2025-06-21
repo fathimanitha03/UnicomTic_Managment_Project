@@ -41,7 +41,7 @@ namespace UnicomTic_Management.Repostory
             var cmd = new SQLiteCommand(courseTable, conn);
             cmd.ExecuteNonQuery();
 
-            
+
             string subjectTable = @"CREATE TABLE IF NOT EXISTS Subjects (
                                     SubjectID INTEGER PRIMARY KEY AUTOINCREMENT,
                                     SubjectName TEXT NOT NULL,
@@ -107,6 +107,13 @@ namespace UnicomTic_Management.Repostory
             var userCmd = new SQLiteCommand(userTable, conn);
             userCmd.ExecuteNonQuery();
 
+           
+
+
+           
+
+
+            
 
             conn.Dispose();
         }
@@ -590,6 +597,5 @@ namespace UnicomTic_Management.Repostory
                 conn.Dispose();
             }
         }
-
     }
 }
