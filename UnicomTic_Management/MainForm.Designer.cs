@@ -37,9 +37,8 @@
             this.btnMarks = new System.Windows.Forms.Button();
             this.btnLogout = new System.Windows.Forms.Button();
             this.btnExit = new System.Windows.Forms.Button();
-            this.btnLecturerAttendance = new System.Windows.Forms.Button();
-            this.btnMyAttendance = new System.Windows.Forms.Button();
-            this.btnStudentAttendance = new System.Windows.Forms.Button();
+            this.btnAttendance = new System.Windows.Forms.Button();
+            this.mybtnAttendance = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label1
@@ -132,41 +131,33 @@
             this.btnExit.UseVisualStyleBackColor = true;
             this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
             // 
-            // btnLecturerAttendance
+            // btnAttendance
             // 
-            this.btnLecturerAttendance.Location = new System.Drawing.Point(299, 214);
-            this.btnLecturerAttendance.Name = "btnLecturerAttendance";
-            this.btnLecturerAttendance.Size = new System.Drawing.Size(75, 23);
-            this.btnLecturerAttendance.TabIndex = 10;
-            this.btnLecturerAttendance.Text = "Lecturer Attendance";
-            this.btnLecturerAttendance.UseVisualStyleBackColor = true;
+            this.btnAttendance.Location = new System.Drawing.Point(299, 153);
+            this.btnAttendance.Name = "btnAttendance";
+            this.btnAttendance.Size = new System.Drawing.Size(75, 23);
+            this.btnAttendance.TabIndex = 9;
+            this.btnAttendance.Text = "Attendance";
+            this.btnAttendance.UseVisualStyleBackColor = true;
+            this.btnAttendance.Click += new System.EventHandler(this.btnAttendance_Click);
             // 
-            // btnMyAttendance
+            // mybtnAttendance
             // 
-            this.btnMyAttendance.Location = new System.Drawing.Point(299, 271);
-            this.btnMyAttendance.Name = "btnMyAttendance";
-            this.btnMyAttendance.Size = new System.Drawing.Size(75, 23);
-            this.btnMyAttendance.TabIndex = 11;
-            this.btnMyAttendance.Text = "My Attendance\n";
-            this.btnMyAttendance.UseVisualStyleBackColor = true;
-            // 
-            // btnStudentAttendance
-            // 
-            this.btnStudentAttendance.Location = new System.Drawing.Point(299, 153);
-            this.btnStudentAttendance.Name = "btnStudentAttendance";
-            this.btnStudentAttendance.Size = new System.Drawing.Size(75, 23);
-            this.btnStudentAttendance.TabIndex = 12;
-            this.btnStudentAttendance.Text = "Student Attendance";
-            this.btnStudentAttendance.UseVisualStyleBackColor = true;
+            this.mybtnAttendance.Location = new System.Drawing.Point(299, 205);
+            this.mybtnAttendance.Name = "mybtnAttendance";
+            this.mybtnAttendance.Size = new System.Drawing.Size(75, 23);
+            this.mybtnAttendance.TabIndex = 10;
+            this.mybtnAttendance.Text = "My Attendance";
+            this.mybtnAttendance.UseVisualStyleBackColor = true;
+            this.mybtnAttendance.Click += new System.EventHandler(this.mybtnAttendance_Click);
             // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(776, 417);
-            this.Controls.Add(this.btnStudentAttendance);
-            this.Controls.Add(this.btnMyAttendance);
-            this.Controls.Add(this.btnLecturerAttendance);
+            this.Controls.Add(this.mybtnAttendance);
+            this.Controls.Add(this.btnAttendance);
             this.Controls.Add(this.btnExit);
             this.Controls.Add(this.btnLogout);
             this.Controls.Add(this.btnMarks);
@@ -195,9 +186,8 @@
         private System.Windows.Forms.Button btnMarks;
         private System.Windows.Forms.Button btnLogout;
         private System.Windows.Forms.Button btnExit;
-        private System.Windows.Forms.Button btnLecturerAttendance;
-        private System.Windows.Forms.Button btnMyAttendance;
-        private System.Windows.Forms.Button btnStudentAttendance;
+        private System.Windows.Forms.Button btnAttendance;
+        private System.Windows.Forms.Button mybtnAttendance;
     }
 }
 

@@ -23,13 +23,14 @@ namespace UnicomTic_Management
 
             lblWelcome.Text = $"Welcome, {user.Username} ({user.Role})";
 
-            // 🔐 Role-based access control
+            //  Role-based access control
             if (user.Role == "Student")
             {
                 btnStudents.Enabled = false;
                 btnMarks.Enabled = false;
                 btnExams.Enabled = false;
                 btnSubjects.Enabled = false;
+                btnAttendance.Visible = false;
             }
             else if (user.Role == "Lecturer")
             {
@@ -93,5 +94,29 @@ namespace UnicomTic_Management
 
         }
 
+        private void btnAttendance_Click(object sender, EventArgs e)
+        {
+            StudentAttendanceForm form = new StudentAttendanceForm();
+            form.ShowDialog();
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+                    }
+
+        private void mybtnAttendance_Click(object sender, EventArgs e)
+        {
+            if (currentUser.Role == "Student")
+            {
+                var viewForm = new StudentViewAttendanceForm(currentUser.UserID);
+                viewForm.ShowDialog();
+            }
+            else
+            {
+                var form = new StudentAttendanceForm();
+                form.ShowDialog();
+            }
+
+        }
+    }
     }

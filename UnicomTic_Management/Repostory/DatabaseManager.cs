@@ -107,13 +107,25 @@ namespace UnicomTic_Management.Repostory
             var userCmd = new SQLiteCommand(userTable, conn);
             userCmd.ExecuteNonQuery();
 
-           
 
 
-           
+            string attendanceTable = @"CREATE TABLE IF NOT EXISTS Attendance (
+                                AttendanceID INTEGER PRIMARY KEY AUTOINCREMENT,
+                                StudentID INTEGER NOT NULL,
+                                SubjectID INTEGER NOT NULL,
+                                Date TEXT NOT NULL,
+                                Status TEXT NOT NULL,
+                                UNIQUE(StudentID, SubjectID, Date),
+                                FOREIGN KEY(StudentID) REFERENCES Students(StudentID),
+                                FOREIGN KEY(SubjectID) REFERENCES Subjects(SubjectID)
+                            )";
+            var attendanceCmd = new SQLiteCommand(attendanceTable, conn);
+            attendanceCmd.ExecuteNonQuery();
 
 
-            
+
+
+
 
             conn.Dispose();
         }
@@ -597,5 +609,117 @@ namespace UnicomTic_Management.Repostory
                 conn.Dispose();
             }
         }
+
+        public async Task AddAttendanceAsync(Attendance a)
+        {
+            var conn = new SQLiteConnection(connectionString);
+            await conn.OpenAsync();
+            var cmd = new SQLiteCommand("INSERT INTO Attendance (StudentID, SubjectID, Date, Status) VALUES (@StudentID, @SubjectID, @Date, @Status)", conn);
+            cmd.Parameters.AddWithValue("@StudentID", a.StudentID);
+            cmd.Parameters.AddWithValue("@SubjectID", a.SubjectID);
+            cmd.Parameters.AddWithValue("@Date", a.Date);
+            cmd.Parameters.AddWithValue("@Status", a.Status);
+            await cmd.ExecuteNonQueryAsync();
+            conn.Dispose();
+        }
+
+        public async Task<Student> GetStudentByIdAsync(int id)
+        {
+            var conn = new SQLiteConnection(connectionString);
+            await conn.OpenAsync();
+            var cmd = new SQLiteCommand("SELECT * FROM Students WHERE StudentID = @id", conn);
+            cmd.Parameters.AddWithValue("@id", id);
+            var reader = await cmd.ExecuteReaderAsync();
+
+            Student s = null;
+            if (await reader.ReadAsync())
+            {
+                s = new Student
+                {
+                    StudentID = Convert.ToInt32(reader["StudentID"]),
+                    FullName = reader["FullName"].ToString(),
+                    Gender = reader["Gender"].ToString(),
+                    DOB = reader["DOB"].ToString(),
+                    CourseID = Convert.ToInt32(reader["CourseID"]),
+                    SubjectID = Convert.ToInt32(reader["SubjectID"])
+                };
+            }
+            conn.Dispose();
+            return s;
+        }
+
+        public async Task<List<Attendance>> GetAllAttendanceAsync()
+        {
+            var list = new List<Attendance>();
+            var conn = new SQLiteConnection(connectionString);
+            await conn.OpenAsync();
+            var cmd = new SQLiteCommand("SELECT * FROM Attendance", conn);
+            var reader = await cmd.ExecuteReaderAsync();
+            while (await reader.ReadAsync())
+            {
+                list.Add(new Attendance
+                {
+                    AttendanceID = Convert.ToInt32(reader["AttendanceID"]),
+                    StudentID = Convert.ToInt32(reader["StudentID"]),
+                    SubjectID = Convert.ToInt32(reader["SubjectID"]),
+                    Date = reader["Date"].ToString(),
+                    Status = reader["Status"].ToString()
+                });
+            }
+            conn.Dispose();
+            return list;
+        }
+
+        public async Task UpdateAttendanceAsync(Attendance a)
+        {
+            var conn = new SQLiteConnection(connectionString);
+            await conn.OpenAsync();
+            var cmd = new SQLiteCommand("UPDATE Attendance SET StudentID = @StudentID, SubjectID = @SubjectID, Date = @Date, Status = @Status WHERE AttendanceID = @AttendanceID", conn);
+            cmd.Parameters.AddWithValue("@StudentID", a.StudentID);
+            cmd.Parameters.AddWithValue("@SubjectID", a.SubjectID);
+            cmd.Parameters.AddWithValue("@Date", a.Date);
+            cmd.Parameters.AddWithValue("@Status", a.Status);
+            cmd.Parameters.AddWithValue("@AttendanceID", a.AttendanceID);
+            await cmd.ExecuteNonQueryAsync();
+            conn.Dispose();
+        }
+
+       
+            
+            public async Task<Subject> GetSubjectByIdAsync(int id)
+            {
+                var conn = new SQLiteConnection(connectionString);
+                await conn.OpenAsync();
+
+                var cmd = new SQLiteCommand("SELECT * FROM Subjects WHERE SubjectID = @id", conn);
+                cmd.Parameters.AddWithValue("@id", id);
+                var reader = await cmd.ExecuteReaderAsync();
+
+                Subject s = null;
+                if (await reader.ReadAsync())
+                {
+                    s = new Subject
+                    {
+                        SubjectID = Convert.ToInt32(reader["SubjectID"]),
+                        SubjectName = reader["SubjectName"].ToString(),
+                        CourseID = Convert.ToInt32(reader["CourseID"])
+                    };
+                }
+
+                conn.Dispose();
+                return s;
+            }
+        
+
+        public async Task DeleteAttendanceAsync(int id)
+        {
+            var conn = new SQLiteConnection(connectionString);
+            await conn.OpenAsync();
+            var cmd = new SQLiteCommand("DELETE FROM Attendance WHERE AttendanceID = @id", conn);
+            cmd.Parameters.AddWithValue("@id", id);
+            await cmd.ExecuteNonQueryAsync();
+            conn.Dispose();
+        }
+
     }
 }
