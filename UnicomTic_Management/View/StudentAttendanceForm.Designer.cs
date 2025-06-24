@@ -191,6 +191,7 @@
             // 
             this.txtAttendanceID.Location = new System.Drawing.Point(164, 182);
             this.txtAttendanceID.Name = "txtAttendanceID";
+            this.txtAttendanceID.ReadOnly = true;
             this.txtAttendanceID.Size = new System.Drawing.Size(282, 20);
             this.txtAttendanceID.TabIndex = 15;
             // 

@@ -39,6 +39,7 @@
             this.btnExit = new System.Windows.Forms.Button();
             this.btnAttendance = new System.Windows.Forms.Button();
             this.mybtnAttendance = new System.Windows.Forms.Button();
+            this.btnRegisterUser = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label1
@@ -63,7 +64,7 @@
             // 
             // btnCourses
             // 
-            this.btnCourses.Location = new System.Drawing.Point(122, 97);
+            this.btnCourses.Location = new System.Drawing.Point(12, 103);
             this.btnCourses.Name = "btnCourses";
             this.btnCourses.Size = new System.Drawing.Size(75, 23);
             this.btnCourses.TabIndex = 2;
@@ -73,7 +74,7 @@
             // 
             // btnSubjects
             // 
-            this.btnSubjects.Location = new System.Drawing.Point(122, 153);
+            this.btnSubjects.Location = new System.Drawing.Point(12, 157);
             this.btnSubjects.Name = "btnSubjects";
             this.btnSubjects.Size = new System.Drawing.Size(75, 23);
             this.btnSubjects.TabIndex = 3;
@@ -83,7 +84,7 @@
             // 
             // btnStudents
             // 
-            this.btnStudents.Location = new System.Drawing.Point(122, 214);
+            this.btnStudents.Location = new System.Drawing.Point(12, 208);
             this.btnStudents.Name = "btnStudents";
             this.btnStudents.Size = new System.Drawing.Size(75, 23);
             this.btnStudents.TabIndex = 4;
@@ -93,7 +94,7 @@
             // 
             // btnExams
             // 
-            this.btnExams.Location = new System.Drawing.Point(122, 271);
+            this.btnExams.Location = new System.Drawing.Point(12, 252);
             this.btnExams.Name = "btnExams";
             this.btnExams.Size = new System.Drawing.Size(75, 23);
             this.btnExams.TabIndex = 5;
@@ -103,7 +104,7 @@
             // 
             // btnMarks
             // 
-            this.btnMarks.Location = new System.Drawing.Point(299, 97);
+            this.btnMarks.Location = new System.Drawing.Point(290, 103);
             this.btnMarks.Name = "btnMarks";
             this.btnMarks.Size = new System.Drawing.Size(75, 23);
             this.btnMarks.TabIndex = 6;
@@ -113,7 +114,7 @@
             // 
             // btnLogout
             // 
-            this.btnLogout.Location = new System.Drawing.Point(168, 358);
+            this.btnLogout.Location = new System.Drawing.Point(23, 346);
             this.btnLogout.Name = "btnLogout";
             this.btnLogout.Size = new System.Drawing.Size(75, 23);
             this.btnLogout.TabIndex = 7;
@@ -133,7 +134,7 @@
             // 
             // btnAttendance
             // 
-            this.btnAttendance.Location = new System.Drawing.Point(299, 153);
+            this.btnAttendance.Location = new System.Drawing.Point(290, 157);
             this.btnAttendance.Name = "btnAttendance";
             this.btnAttendance.Size = new System.Drawing.Size(75, 23);
             this.btnAttendance.TabIndex = 9;
@@ -143,7 +144,7 @@
             // 
             // mybtnAttendance
             // 
-            this.mybtnAttendance.Location = new System.Drawing.Point(299, 205);
+            this.mybtnAttendance.Location = new System.Drawing.Point(290, 208);
             this.mybtnAttendance.Name = "mybtnAttendance";
             this.mybtnAttendance.Size = new System.Drawing.Size(75, 23);
             this.mybtnAttendance.TabIndex = 10;
@@ -151,11 +152,22 @@
             this.mybtnAttendance.UseVisualStyleBackColor = true;
             this.mybtnAttendance.Click += new System.EventHandler(this.mybtnAttendance_Click);
             // 
+            // btnRegisterUser
+            // 
+            this.btnRegisterUser.Location = new System.Drawing.Point(290, 252);
+            this.btnRegisterUser.Name = "btnRegisterUser";
+            this.btnRegisterUser.Size = new System.Drawing.Size(75, 23);
+            this.btnRegisterUser.TabIndex = 11;
+            this.btnRegisterUser.Text = "Register";
+            this.btnRegisterUser.UseVisualStyleBackColor = true;
+            this.btnRegisterUser.Click += new System.EventHandler(this.btnRegisterUser_Click);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(776, 417);
+            this.Controls.Add(this.btnRegisterUser);
             this.Controls.Add(this.mybtnAttendance);
             this.Controls.Add(this.btnAttendance);
             this.Controls.Add(this.btnExit);
@@ -188,6 +200,7 @@
         private System.Windows.Forms.Button btnExit;
         private System.Windows.Forms.Button btnAttendance;
         private System.Windows.Forms.Button mybtnAttendance;
+        private System.Windows.Forms.Button btnRegisterUser;
     }
 }
 

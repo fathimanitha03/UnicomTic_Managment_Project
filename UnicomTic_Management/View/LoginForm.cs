@@ -36,20 +36,7 @@ namespace UnicomTic_Management.View
             }
         }
 
-        private async void btnRegister_Click(object sender, EventArgs e)
-        {
-            string username = txtUsername.Text.Trim();
-            string password = txtPassword.Text;
-            string role = cmbRole.SelectedItem?.ToString();
-
-            if (string.IsNullOrWhiteSpace(username) || string.IsNullOrWhiteSpace(password) || string.IsNullOrWhiteSpace(role))
-            {
-                MessageBox.Show("All fields are required for registration.");
-                return;
-            }
-
-            await controller.Register(username, password, role);
-        }
+       
 
         private void btnExit_Click(object sender, EventArgs e)
         {

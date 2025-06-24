@@ -31,11 +31,14 @@ namespace UnicomTic_Management
                 btnExams.Enabled = false;
                 btnSubjects.Enabled = false;
                 btnAttendance.Visible = false;
+                btnRegisterUser.Visible = false;
             }
             else if (user.Role == "Lecturer")
             {
                 btnStudents.Enabled = false;
                 btnSubjects.Enabled = false;
+                btnRegisterUser.Visible = true;
+
             }
             // Admin has access to everything
         }
@@ -117,6 +120,12 @@ namespace UnicomTic_Management
                 form.ShowDialog();
             }
 
+        }
+
+        private void btnRegisterUser_Click(object sender, EventArgs e)
+        {
+            RegisterForm form = new RegisterForm();
+            form.ShowDialog();
         }
     }
     }
