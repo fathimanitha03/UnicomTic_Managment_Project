@@ -101,13 +101,16 @@ namespace UnicomTic_Management.Repostory
             var markCmd = new SQLiteCommand(markTable, conn);
             markCmd.ExecuteNonQuery();
 
-            string userTable = @"CREATE TABLE IF NOT EXISTS Users (
-                                UserID INTEGER PRIMARY KEY AUTOINCREMENT,
-                                Username TEXT NOT NULL UNIQUE,
-                                Password TEXT NOT NULL,
-                                Role TEXT NOT NULL)";
-            var userCmd = new SQLiteCommand(userTable, conn);
-            userCmd.ExecuteNonQuery();
+            string checkAdmin = "SELECT COUNT(*) FROM Users WHERE Username = 'admin'";
+            var checkCmd = new SQLiteCommand(checkAdmin, conn);
+            int count = Convert.ToInt32(checkCmd.ExecuteScalar());
+
+            if (count == 0)
+            {
+                string insertAdmin = "INSERT INTO Users (Username, Password, Role) VALUES ('admin', 'admin123', 'Admin')";
+                var insertCmd = new SQLiteCommand(insertAdmin, conn);
+                insertCmd.ExecuteNonQuery();
+            }
 
 
 
