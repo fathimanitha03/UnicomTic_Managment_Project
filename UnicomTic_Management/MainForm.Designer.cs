@@ -45,10 +45,10 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Times New Roman", 27.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(180, 9);
+            this.label1.Font = new System.Drawing.Font("Times New Roman", 36F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(125, 9);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(419, 42);
+            this.label1.Size = new System.Drawing.Size(550, 55);
             this.label1.TabIndex = 0;
             this.label1.Text = " Unicom TIC Dash Board";
             // 
@@ -64,9 +64,10 @@
             // 
             // btnCourses
             // 
-            this.btnCourses.Location = new System.Drawing.Point(12, 103);
+            this.btnCourses.Font = new System.Drawing.Font("Times New Roman", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCourses.Location = new System.Drawing.Point(23, 102);
             this.btnCourses.Name = "btnCourses";
-            this.btnCourses.Size = new System.Drawing.Size(75, 23);
+            this.btnCourses.Size = new System.Drawing.Size(222, 65);
             this.btnCourses.TabIndex = 2;
             this.btnCourses.Text = "Course";
             this.btnCourses.UseVisualStyleBackColor = true;
@@ -74,9 +75,10 @@
             // 
             // btnSubjects
             // 
-            this.btnSubjects.Location = new System.Drawing.Point(12, 157);
+            this.btnSubjects.Font = new System.Drawing.Font("Times New Roman", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSubjects.Location = new System.Drawing.Point(23, 173);
             this.btnSubjects.Name = "btnSubjects";
-            this.btnSubjects.Size = new System.Drawing.Size(75, 23);
+            this.btnSubjects.Size = new System.Drawing.Size(222, 58);
             this.btnSubjects.TabIndex = 3;
             this.btnSubjects.Text = "Subject";
             this.btnSubjects.UseVisualStyleBackColor = true;
@@ -84,9 +86,10 @@
             // 
             // btnStudents
             // 
-            this.btnStudents.Location = new System.Drawing.Point(12, 208);
+            this.btnStudents.Font = new System.Drawing.Font("Times New Roman", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnStudents.Location = new System.Drawing.Point(251, 173);
             this.btnStudents.Name = "btnStudents";
-            this.btnStudents.Size = new System.Drawing.Size(75, 23);
+            this.btnStudents.Size = new System.Drawing.Size(222, 58);
             this.btnStudents.TabIndex = 4;
             this.btnStudents.Text = "Student";
             this.btnStudents.UseVisualStyleBackColor = true;
@@ -94,9 +97,10 @@
             // 
             // btnExams
             // 
-            this.btnExams.Location = new System.Drawing.Point(12, 252);
+            this.btnExams.Font = new System.Drawing.Font("Times New Roman", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnExams.Location = new System.Drawing.Point(479, 173);
             this.btnExams.Name = "btnExams";
-            this.btnExams.Size = new System.Drawing.Size(75, 23);
+            this.btnExams.Size = new System.Drawing.Size(222, 58);
             this.btnExams.TabIndex = 5;
             this.btnExams.Text = "Exam";
             this.btnExams.UseVisualStyleBackColor = true;
@@ -104,9 +108,10 @@
             // 
             // btnMarks
             // 
-            this.btnMarks.Location = new System.Drawing.Point(290, 103);
+            this.btnMarks.Font = new System.Drawing.Font("Times New Roman", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnMarks.Location = new System.Drawing.Point(479, 102);
             this.btnMarks.Name = "btnMarks";
-            this.btnMarks.Size = new System.Drawing.Size(75, 23);
+            this.btnMarks.Size = new System.Drawing.Size(222, 65);
             this.btnMarks.TabIndex = 6;
             this.btnMarks.Text = "Marks";
             this.btnMarks.UseVisualStyleBackColor = true;
@@ -114,9 +119,10 @@
             // 
             // btnLogout
             // 
-            this.btnLogout.Location = new System.Drawing.Point(23, 346);
+            this.btnLogout.Font = new System.Drawing.Font("Times New Roman", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnLogout.Location = new System.Drawing.Point(525, 363);
             this.btnLogout.Name = "btnLogout";
-            this.btnLogout.Size = new System.Drawing.Size(75, 23);
+            this.btnLogout.Size = new System.Drawing.Size(90, 29);
             this.btnLogout.TabIndex = 7;
             this.btnLogout.Text = "Logout";
             this.btnLogout.UseVisualStyleBackColor = true;
@@ -124,9 +130,10 @@
             // 
             // btnExit
             // 
-            this.btnExit.Location = new System.Drawing.Point(648, 369);
+            this.btnExit.Font = new System.Drawing.Font("Times New Roman", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnExit.Location = new System.Drawing.Point(633, 363);
             this.btnExit.Name = "btnExit";
-            this.btnExit.Size = new System.Drawing.Size(75, 23);
+            this.btnExit.Size = new System.Drawing.Size(90, 29);
             this.btnExit.TabIndex = 8;
             this.btnExit.Text = "Exit";
             this.btnExit.UseVisualStyleBackColor = true;
@@ -134,9 +141,10 @@
             // 
             // btnAttendance
             // 
-            this.btnAttendance.Location = new System.Drawing.Point(290, 157);
+            this.btnAttendance.Font = new System.Drawing.Font("Times New Roman", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAttendance.Location = new System.Drawing.Point(23, 237);
             this.btnAttendance.Name = "btnAttendance";
-            this.btnAttendance.Size = new System.Drawing.Size(75, 23);
+            this.btnAttendance.Size = new System.Drawing.Size(222, 58);
             this.btnAttendance.TabIndex = 9;
             this.btnAttendance.Text = "Attendance";
             this.btnAttendance.UseVisualStyleBackColor = true;
@@ -144,9 +152,10 @@
             // 
             // mybtnAttendance
             // 
-            this.mybtnAttendance.Location = new System.Drawing.Point(290, 208);
+            this.mybtnAttendance.Font = new System.Drawing.Font("Times New Roman", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.mybtnAttendance.Location = new System.Drawing.Point(251, 102);
             this.mybtnAttendance.Name = "mybtnAttendance";
-            this.mybtnAttendance.Size = new System.Drawing.Size(75, 23);
+            this.mybtnAttendance.Size = new System.Drawing.Size(222, 65);
             this.mybtnAttendance.TabIndex = 10;
             this.mybtnAttendance.Text = "My Attendance";
             this.mybtnAttendance.UseVisualStyleBackColor = true;
@@ -154,9 +163,10 @@
             // 
             // btnRegisterUser
             // 
-            this.btnRegisterUser.Location = new System.Drawing.Point(290, 252);
+            this.btnRegisterUser.Font = new System.Drawing.Font("Times New Roman", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnRegisterUser.Location = new System.Drawing.Point(251, 237);
             this.btnRegisterUser.Name = "btnRegisterUser";
-            this.btnRegisterUser.Size = new System.Drawing.Size(75, 23);
+            this.btnRegisterUser.Size = new System.Drawing.Size(222, 58);
             this.btnRegisterUser.TabIndex = 11;
             this.btnRegisterUser.Text = "Register";
             this.btnRegisterUser.UseVisualStyleBackColor = true;
@@ -166,6 +176,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.SystemColors.ControlDark;
             this.ClientSize = new System.Drawing.Size(776, 417);
             this.Controls.Add(this.btnRegisterUser);
             this.Controls.Add(this.mybtnAttendance);
@@ -179,6 +190,7 @@
             this.Controls.Add(this.btnCourses);
             this.Controls.Add(this.lblWelcome);
             this.Controls.Add(this.label1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "MainForm";
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.MainForm_Load);

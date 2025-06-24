@@ -67,10 +67,12 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.SystemColors.ControlDark;
             this.ClientSize = new System.Drawing.Size(800, 336);
             this.Controls.Add(this.btnClose);
             this.Controls.Add(this.dgvStudentAttendance);
             this.Controls.Add(this.label1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "StudentViewAttendanceForm";
             this.Text = "StudentViewAttendanceForm";
             this.Load += new System.EventHandler(this.StudentViewAttendanceForm_Load);

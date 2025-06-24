@@ -50,6 +50,10 @@ namespace UnicomTic_Management.View
             cmbRole.SelectedIndex = 0; // default selected
         }
 
+        private void button1_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }
 
