@@ -4,6 +4,7 @@ using System.Data.SQLite;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 using UnicomTic_Management.Model;
 
 namespace UnicomTic_Management.Repostory
@@ -585,8 +586,8 @@ namespace UnicomTic_Management.Repostory
             conn.Dispose();
             return user;
         }
-     
-           public async Task AddAttendanceAsync(Attendance a)
+
+        public async Task AddAttendanceAsync(Attendance a)
         {
             var conn = new SQLiteConnection(connectionString);
             await conn.OpenAsync();
@@ -660,32 +661,32 @@ namespace UnicomTic_Management.Repostory
             conn.Dispose();
         }
 
-       
-            
-            public async Task<Subject> GetSubjectByIdAsync(int id)
+
+
+        public async Task<Subject> GetSubjectByIdAsync(int id)
+        {
+            var conn = new SQLiteConnection(connectionString);
+            await conn.OpenAsync();
+
+            var cmd = new SQLiteCommand("SELECT * FROM Subjects WHERE SubjectID = @id", conn);
+            cmd.Parameters.AddWithValue("@id", id);
+            var reader = await cmd.ExecuteReaderAsync();
+
+            Subject s = null;
+            if (await reader.ReadAsync())
             {
-                var conn = new SQLiteConnection(connectionString);
-                await conn.OpenAsync();
-
-                var cmd = new SQLiteCommand("SELECT * FROM Subjects WHERE SubjectID = @id", conn);
-                cmd.Parameters.AddWithValue("@id", id);
-                var reader = await cmd.ExecuteReaderAsync();
-
-                Subject s = null;
-                if (await reader.ReadAsync())
+                s = new Subject
                 {
-                    s = new Subject
-                    {
-                        SubjectID = Convert.ToInt32(reader["SubjectID"]),
-                        SubjectName = reader["SubjectName"].ToString(),
-                        CourseID = Convert.ToInt32(reader["CourseID"])
-                    };
-                }
-
-                conn.Dispose();
-                return s;
+                    SubjectID = Convert.ToInt32(reader["SubjectID"]),
+                    SubjectName = reader["SubjectName"].ToString(),
+                    CourseID = Convert.ToInt32(reader["CourseID"])
+                };
             }
-        
+
+            conn.Dispose();
+            return s;
+        }
+
 
         public async Task DeleteAttendanceAsync(int id)
         {
@@ -704,19 +705,33 @@ namespace UnicomTic_Management.Repostory
             var conn = new SQLiteConnection(connectionString);
             await conn.OpenAsync();
 
-            string query = "INSERT INTO Users (Username, Password, Role) VALUES (@Username, @Password, @Role)";
-            var cmd = new SQLiteCommand(query, conn);
-            cmd.Parameters.AddWithValue("@Username", user.Username);
-            cmd.Parameters.AddWithValue("@Password", user.Password);
-            cmd.Parameters.AddWithValue("@Role", user.Role);
-
             try
             {
+                // Check if username already exists
+                string checkQuery = "SELECT COUNT(*) FROM Users WHERE Username = @Username";
+                var checkCmd = new SQLiteCommand(checkQuery, conn);
+                checkCmd.Parameters.AddWithValue("@Username", user.Username);
+                long count = (long)await checkCmd.ExecuteScalarAsync();
+
+                if (count > 0)
+                {
+                    MessageBox.Show("Username already exists. Please choose a different username.");
+                    return false;
+                }
+
+                // Insert new user
+                string query = "INSERT INTO Users (Username, Password, Role) VALUES (@Username, @Password, @Role)";
+                var cmd = new SQLiteCommand(query, conn);
+                cmd.Parameters.AddWithValue("@Username", user.Username);
+                cmd.Parameters.AddWithValue("@Password", user.Password);
+                cmd.Parameters.AddWithValue("@Role", user.Role);
+
                 await cmd.ExecuteNonQueryAsync();
                 return true;
             }
-            catch
+            catch (Exception ex)
             {
+                MessageBox.Show("Registration failed: " + ex.Message);
                 return false;
             }
             finally
@@ -725,6 +740,6 @@ namespace UnicomTic_Management.Repostory
             }
         }
 
-    }
 
+    }
 }

@@ -127,5 +127,15 @@ namespace UnicomTic_Management
             RegisterForm form = new RegisterForm();
             form.ShowDialog();
         }
+
+        private void lblWelcome_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
     }
     }
